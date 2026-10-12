@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a12"><meta name="description" content="NovaPulse AI — your creative intelligence workspace.">
+<title>NovaPulse AI — Your intelligence, amplified</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="/"><span class="brand-mark">✳</span><span>nova<span class="brand-light">pulse</span><small>INTELLIGENCE STUDIO</small></span></a>
+  <button class="new-chat" id="newChat"><span>＋</span> New conversation <kbd>⌘ K</kbd></button>
+  <div class="nav-label">WORKSPACE</div>
+  <button class="nav-item active" data-tool="chat"><span>◈</span> AI Assistant <span class="nav-dot"></span></button>
+  <button class="nav-item" data-tool="image"><span>✧</span> Image Studio <span class="soon">BETA</span></button>
+  <button class="nav-item" data-tool="writing"><span>✎</span> AI Writer</button>
+  <button class="nav-item" data-tool="coding"><span>⌘</span> Code Copilot</button>
+  <button class="nav-item" data-tool="documents"><span>▤</span> Documents</button>
+  <div class="nav-label history-label">RECENT CHATS</div>
+  <div class="history-list" id="historyList"><div class="history-empty">Your conversations will appear here.</div></div>
+  <div class="sidebar-bottom">
+    <div class="upgrade-card"><div class="upgrade-icon">✦</div><strong>Unlock your potential</strong><p>Bring your ideas to life with AI.</p><button id="explorePlans">Explore capabilities <span>↗</span></button></div>
+    <a class="profile" href="/admin"><div class="avatar">N</div><div><strong>NovaPulse workspace</strong><small>Free workspace</small></div><span class="profile-menu">•••</span></a>
+  </div>
+</aside>
+<main class="main">
+  <header class="topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="crumb">Workspace <span>/</span> <b id="pageCrumb">AI Assistant</b></div><div class="top-actions"><span class="status"><i></i><span id="modeText">DEMO MODE</span></span><button class="icon-button" id="themeButton" title="Toggle glow">◐</button><a class="admin-link" href="/admin">Admin ↗</a></div></header>
+  <section class="welcome" id="welcome">
+    <div class="eyebrow"><span class="spark">✦</span> YOUR CREATIVE INTELLIGENCE</div>
+    <h1>Ideas become <span>extraordinary.</span></h1>
+    <p class="welcome-sub">A little curiosity can change everything. What are we creating today?</p>
+    <div class="suggestions">
+      <button class="suggestion" data-prompt="Help me brainstorm a bold new business idea."><span class="s-icon violet">✧</span><span><b>Brainstorm ideas</b><small>Think beyond the obvious</small></span><span class="arrow">↗</span></button>
+      <button class="suggestion" data-prompt="Write a polished, compelling landing page for my new product."><span class="s-icon blue">✎</span><span><b>Write something</b><small>Make every word count</small></span><span class="arrow">↗</span></button>
+      <button class="suggestion" data-prompt="Create a clean, responsive HTML landing page with modern CSS."><span class="s-icon pink">⌘</span><span><b>Build with code</b><small>From concept to creation</small></span><span class="arrow">↗</span></button>
+      <button class="suggestion" data-open="image"><span class="s-icon gold">✦</span><span><b>Imagine a visual</b><small>Turn prompts into art</small></span><span class="arrow">↗</span></button>
+    </div>
+  </section>
+  <section class="conversation hidden" id="conversation"><div id="messages"></div></section>
+  <section class="tool-panel hidden" id="imagePanel">
+    <div class="tool-heading"><div class="tool-icon image-icon">✧</div><div><div class="eyebrow">VISUAL CREATION</div><h2>Image Studio</h2><p>Describe a scene. Give your imagination a canvas.</p></div></div>
+    <label class="field-label" for="imagePrompt">YOUR IMAGE PROMPT</label><textarea id="imagePrompt" class="tool-textarea" placeholder="A cinematic, ultra-detailed futuristic city at blue hour, reflections on wet glass, editorial lighting..."></textarea>
+    <div class="field-row"><span>Square canvas · 1024 × 1024</span><span>Provider access may be required</span></div><button class="primary-button" id="generateImage">✦ Generate image <span>↗</span></button><div id="imageResult" class="image-result"></div>
+  </section>
+  <section class="tool-panel hidden" id="writingPanel">
+    <div class="tool-heading"><div class="tool-icon writing-icon">✎</div><div><div class="eyebrow">WORDS WITH IMPACT</div><h2>AI Writer</h2><p>Draft, refine, rewrite, and bring your best ideas forward.</p></div></div>
+    <div class="writing-grid"><button data-write="Write a compelling, premium brand story for a modern startup.">Brand story <span>↗</span></button><button data-write="Write a concise, high-converting product description.">Product description <span>↗</span></button><button data-write="Create a professional email that is clear, warm, and concise.">Professional email <span>↗</span></button><button data-write="Create a 7-day social media content calendar with engaging post ideas.">Social content plan <span>↗</span></button></div>
+  </section>
+  <section class="tool-panel hidden" id="codingPanel">
+    <div class="tool-heading"><div class="tool-icon code-icon">⌘</div><div><div class="eyebrow">BUILD SOMETHING REAL</div><h2>Code Copilot</h2><p>Explain code, debug errors, or start your next build.</p></div></div>
+    <div class="code-examples"><button data-code="Create a responsive premium landing page using semantic HTML and CSS.">Create a landing page <span>↗</span></button><button data-code="Explain this error and give me a step-by-step fix: [paste error here].">Debug an error <span>↗</span></button><button data-code="Design a REST API architecture for a secure AI chat app.">Design an API <span>↗</span></button></div>
+  </section>
+  <section class="tool-panel hidden" id="documentsPanel">
+    <div class="tool-heading"><div class="tool-icon doc-icon">▤</div><div><div class="eyebrow">YOUR FILES, MORE USEFUL</div><h2>Documents</h2><p>Upload a supported file to store it on this starter server.</p></div></div>
+    <label class="upload-zone" for="fileInput"><span class="upload-symbol">↑</span><b>Choose a file to upload</b><span>PNG, JPG, WEBP, GIF, PDF or TXT · Max 5 MB</span><input id="fileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.txt"></label><div id="uploadResult" class="upload-result"></div><p class="note">Note: file upload is active, but automatic PDF reading and document Q&A are not included in this starter yet.</p>
+  </section>
+  <footer class="composer-wrap" id="composerWrap"><div class="composer"><textarea id="messageInput" rows="1" placeholder="Ask anything. Imagine what’s possible..." aria-label="Message NovaPulse"></textarea><div class="composer-tools"><div class="left-tools"><button id="attachButton" title="Open documents">＋ <span>Attach</span></button><span class="composer-hint">AI can make mistakes. Verify important information.</span></div><button class="send-button" id="sendButton" aria-label="Send message">↑</button></div></div><div class="bottom-caption">POWERED BY CURIOSITY <span>✦</span> BUILT FOR WHAT'S NEXT</div></footer>
+</main>
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body></html>
